@@ -5,14 +5,16 @@ class Cube:
         self.state = {
             "U": ["W"] * 9,
             "D": ["Y"] * 9,
-            "F": ["0", "F", "0", "F", "F", "F", "F", "F", "F"],
+            "F": ["F"] * 9,
             "B": ["B"] * 9,
             "L": ["O"] * 9,
             "R": ["R"] * 9
         }
 
-    def _cycle_indices_clockwise(self, face1: str, indices1: list[int], face2: str, indices2: list[int], face3: str, indices3: list[int], face4: str, indices4: list[int]) -> None:
-        """Clockwise 4-way cycle for strips that are not simple slices."""
+    def _cycle_indices_clockwise(self, face1: str, indices1: list[int], face2: str, indices2: list[int], 
+                                face3: str, indices3: list[int], face4: str, indices4: list[int]) -> None:
+        
+        """Clockwise 4-way cycle for strips"""
         temp = [self.state[face1][index] for index in indices1]
 
         for i in range(len(indices1)):
