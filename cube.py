@@ -53,7 +53,7 @@ class Cube:
         self._cycle_indices_clockwise("F", [0, 1, 2], "L", [0, 1, 2], "B", [0, 1, 2], "R", [0, 1, 2])
         self._rotate_face_clockwise("U")
 
-    #
+    # GOOD
     def D(self) -> None:
         self._cycle_indices_clockwise("F", [6, 7, 8], "R", [6, 7, 8], "B", [6, 7, 8], "L", [6, 7, 8])
         self._rotate_face_clockwise("D")
