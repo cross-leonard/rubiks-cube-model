@@ -3,14 +3,13 @@
 class Cube:
     def __init__(self):
         self.state = {
-            "U": ["0", "W", "0", "W", "W", "W", "W", "W", "W"],
-            "D": ["0", "Y", "0", "Y", "Y", "Y", "Y", "Y", "Y"],
-            "F": ["G"] * 9,
+            "U": ["W"] * 9,
+            "D": ["Y"] * 9,
+            "F": ["0", "F", "0", "F", "F", "F", "F", "F", "F"],
             "B": ["B"] * 9,
             "L": ["O"] * 9,
-            "R": ["R"] * 9,
+            "R": ["R"] * 9
         }
-
 
     def _cycle_indices_clockwise(self, face1: str, indices1: list[int], face2: str, indices2: list[int], face3: str, indices3: list[int], face4: str, indices4: list[int]) -> None:
         """Clockwise 4-way cycle for strips that are not simple slices."""
@@ -47,31 +46,28 @@ class Cube:
         self.state[face][7] = old[5]
         self.state[face][8] = old[2]
 
-
-    # GOOD
     def U(self) -> None:
         self._cycle_indices_clockwise("F", [0, 1, 2], "L", [0, 1, 2], "B", [0, 1, 2], "R", [0, 1, 2])
         self._rotate_face_clockwise("U")
 
-    # GOOD
     def D(self) -> None:
         self._cycle_indices_clockwise("F", [6, 7, 8], "R", [6, 7, 8], "B", [6, 7, 8], "L", [6, 7, 8])
         self._rotate_face_clockwise("D")
 
     def R(self) -> None:
-        self._cycle_indices_clockwise("U", [2, 5, 8], "F", [2, 5, 8], "D", [2, 5, 8], "B", [6, 3, 0])
+        self._cycle_indices_clockwise("U", [2, 5, 8], "B", [6, 3, 0], "D", [2, 5, 8], "F", [2, 5, 8])
         self._rotate_face_clockwise("R")
 
     def L(self) -> None:
-        self._cycle_indices_clockwise("U", [0, 3, 6], "B", [8, 5, 2], "D", [0, 3, 6], "F", [0, 3, 6])
+        self._cycle_indices_clockwise("U", [0, 3, 6], "F", [0, 3, 6], "D", [0, 3, 6], "B", [8, 5, 2])
         self._rotate_face_clockwise("L")
 
     def F(self) -> None:
-        self._cycle_indices_clockwise("U", [6, 7, 8], "R", [0, 3, 6], "D", [2, 1, 0], "L", [8, 5, 2])
+        self._cycle_indices_clockwise("U", [6, 7, 8], "R", [0, 3, 6], "D", [0, 1, 2], "L", [2, 5, 8])
         self._rotate_face_clockwise("F")
 
     def B(self) -> None:
-        self._cycle_indices_clockwise("U", [0, 1, 2], "L", [0, 3, 6], "D", [8, 7, 6], "R", [8, 5, 2])
+        self._cycle_indices_clockwise("U", [0, 1, 2], "L", [0, 3, 6], "D", [6, 7, 8], "R", [2, 5, 8])
         self._rotate_face_clockwise("B")
 
     def U_prime(self) -> None:

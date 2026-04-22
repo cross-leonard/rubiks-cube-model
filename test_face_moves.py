@@ -65,6 +65,6 @@ cube_print(cube)
 print('OUTCOME:')
 print()
 
-cube.D()
+cube.F()
 
 cube_print(cube)
