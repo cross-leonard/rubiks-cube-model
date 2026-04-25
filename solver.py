@@ -1,28 +1,22 @@
-from pieces import EDGE_ADJACENT, HOME_COLORS, EDGE_PIECES, EDGE_POSITIONS
+"""Helpers for identifying edge pieces from the current cube state."""
 
-def get_edge_at_position(self, face: str, index: int):
-    """
-    Returns (piece_name, orientation)
-    orientation = 0 (correct) or 1 (flipped)
-    """
+from pieces import EDGE_ADJACENT, EDGE_PIECES, HOME_COLORS
 
-    # Read the first sticker
-    color1 = self.state[face][index]
+def get_edge_at_position(cube, face: str, index: int) -> tuple[str, int]:
+    """Return the edge piece name and orientation at a sticker location."""
 
-    # Find the partner sticker
+    color1 = cube.state[face][index]
+
     face2, index2 = EDGE_ADJACENT[(face, index)]
-    color2 = self.state[face2][index2]
+    color2 = cube.state[face2][index2]
 
-    # Try to match these two colors to a home edge piece
-    for piece_name, ((f1, i1), (f2, i2)) in EDGE_PIECES.items():
+    for piece_name, ((f1, _), (f2, _)) in EDGE_PIECES.items():
         home_color1 = HOME_COLORS[f1]
         home_color2 = HOME_COLORS[f2]
 
-        # Correct orientation
         if color1 == home_color1 and color2 == home_color2:
             return piece_name, 0
 
-        # Flipped orientation
         if color1 == home_color2 and color2 == home_color1:
             return piece_name, 1
 

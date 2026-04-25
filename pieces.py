@@ -1,5 +1,6 @@
+"""Static edge-piece mappings used by the cube helpers and solver."""
 
-# This maps letters → positions (Speffz)
+# Letter to sticker position mapping (Speffz).
 EDGE_POSITIONS = {
 
     # U face
@@ -39,7 +40,7 @@ EDGE_POSITIONS = {
     "X": ("D", 3),  # DL
 }
 
-# This maps piece names → their home sticker locations.
+# Piece name to home sticker locations.
 EDGE_PIECES = {
     "UB": (("U", 1), ("B", 1)),
     "UR": (("U", 5), ("R", 1)),
