@@ -73,6 +73,39 @@ EDGE_PIECES = {
     "DL": (("D", 3), ("L", 7)),
 }
 
+EDGE_LETTER = {
+    "UB": "A",
+    "UR": "B",
+    "UF": "C",
+    "UL": "D",
+
+    "LU": "E",
+    "LF": "F",
+    "LD": "G",
+    "LB": "H",
+
+    "FU": "I",
+    "FR": "J",
+    "FD": "K",
+    "FL": "L",
+
+    "RU": "M",
+    "RB": "N",
+    "RD": "O",
+    "RL": "P",
+
+    "BU": "Q",
+    "BL": "R",
+    "BD": "S",
+    "BR": "T",
+
+    "DF": "U",
+    "DR": "V",
+    "DB": "W",
+    "DL": "X",
+}
+
+
 HOME_COLORS = {
     "U": "W",
     "D": "Y",

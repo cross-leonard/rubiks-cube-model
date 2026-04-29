@@ -111,4 +111,26 @@ class Cube:
         for _ in range(3):
             self.B()
 
+    def apply_scramble(self, scramble: str) -> None:
+        """Apply a sequence of moves to the cube.
+        
+        Args:
+            scramble: A space-separated string of moves (e.g., "R U R' U'")
+                     Supports moves: U, D, F, B, L, R and their primes (U', D', etc.)
+        """
+        moves = scramble.split()
+        move_map = {
+            "U": self.U, "U'": self.U_prime,
+            "D": self.D, "D'": self.D_prime,
+            "F": self.F, "F'": self.F_prime,
+            "B": self.B, "B'": self.B_prime,
+            "L": self.L, "L'": self.L_prime,
+            "R": self.R, "R'": self.R_prime,
+        }
+        
+        for move in moves:
+            if move in move_map:
+                move_map[move]()
+            else:
+                raise ValueError(f"Unknown move: {move}")
 
