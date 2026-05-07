@@ -1,14 +1,31 @@
-# Old Pachman Method Checker
+# Minimal Rubik's Cube Model
 
-A Python project that simulates a Rubik’s Cube and implements move logic for testing and validating solving methods.
+This small Python project provides a data representation of a 3x3 Rubik's Cube and a simple CLI to apply scrambles.
 
----
+Only two modules are required: `cube.py` (the cube model) and `main.py` (a tiny entrypoint to apply a scramble and print the cube).
 
-## 🧩 Features
+**Features**
+- In-memory 3x3 cube state with face-turn methods
+- `apply_scramble()` accepts space-separated moves (e.g. "R U R' U'")
+- Minimal CLI: run `python main.py` and enter a scramble
 
-- 3x3 Rubik’s cube representation
-- Core cube moves (e.g. U, R, F, etc.)
-- Index-based face rotation logic
-- Helper functions for cycling cube edges
+## Quickstart
 
----
+Run the CLI and enter a scramble when prompted:
+
+```bash
+python main.py
+# Enter scramble: R U R' U'
+```
+
+Programmatic example:
+
+```python
+from cube import Cube
+
+c = Cube()
+c.apply_scramble("R U R' U'")
+print(c)
+```
+
+Requirements: Python 3.8+

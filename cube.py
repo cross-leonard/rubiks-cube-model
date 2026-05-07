@@ -14,6 +14,12 @@ class Cube:
             "R": ["R"] * 9
         }
 
+    def __str__(self):
+        result = ""
+        for face, tiles in self.state.items():
+            result += f"{face}: {tiles}\n"
+        return result
+
     def _cycle_indices_clockwise(self, face1: str, indices1: list[int], face2: str, indices2: list[int], 
                                 face3: str, indices3: list[int], face4: str, indices4: list[int]) -> None:
         """Cycle four sticker strips clockwise across faces."""
@@ -110,7 +116,7 @@ class Cube:
         """Perform a counterclockwise B turn."""
         for _ in range(3):
             self.B()
-
+        
     def apply_scramble(self, scramble: str) -> None:
         """Apply a sequence of moves to the cube.
         
