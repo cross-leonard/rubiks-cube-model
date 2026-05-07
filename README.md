@@ -6,7 +6,7 @@ Only two modules are required: `cube.py` (the cube model) and `main.py` (a tiny 
 
 **Features**
 - In-memory 3x3 cube state with face-turn methods
-- `apply_scramble()` accepts space-separated moves (e.g. "R U R' U'")
+- `apply_scramble()` accepts space separated moves (e.g. "R U R' U'")
 - Minimal CLI: run `python main.py` and enter a scramble
 
 ## Quickstart
