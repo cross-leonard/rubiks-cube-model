@@ -1,6 +1,6 @@
-# Minimal Rubik's Cube Model
+# Rubik's Cube Model
 
-This small Python project provides a data representation of a 3x3 Rubik's Cube and a simple CLI to apply scrambles.
+This Python project provides a data representation of a 3x3 Rubik's Cube and a simple CLI to apply scrambles.
 
 Only two modules are required: `cube.py` (the cube model) and `main.py` (a tiny entrypoint to apply a scramble and print the cube).
 
