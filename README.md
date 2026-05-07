@@ -28,4 +28,3 @@ c.apply_scramble("R U R' U'")
 print(c)
 ```
 
-Requirements: Python 3.8+
